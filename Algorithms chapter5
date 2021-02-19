@@ -1,119 +1,123 @@
+Exercise 5-1: Write a program that converts Centigrade to Fahrenheit. 
+
 #include <stdio.h>
-#include <string.h>
+float temp_f;     /* degrees fahrenheit */
+float temp_c;     /* degrees centigrade */
+char line_text[50];        
 
-float data[5]; // data to get total and average
-float total;  /* total sum of elements */
-float average;  //average of the elements
+int main() {
+	printf("Input a temperature (in Centigrade): ");
+	fgets(line_text, sizeof(line_text), stdin);
+	sscanf(line_text, "%f", &temp_c);
 
-// 5 -> 0-4, if n elements, the index will go from  0 to n-1
-char mystring[30];
-int length;
+	temp_f = ((9.0 / 5.0) * temp_c) + 32.0;
+	printf("%f degrees Fahrenheit.\n", temp_f);
 
-int main(void)
+	return(0);
+}
+
+Exercise 5-2: Write a program to calculate the volume of a sphere. 
+
+#include <stdio.h>
+float myradius;          /* radius of the sphere */
+float myvolume;          /* volume of the sphere (to be computed) */
+char line_text[50];    
+
+
+const float PI = 3.1416
+
+int main() {
+	printf("Input the radius of the sphere : ");
+	fgets(line_text, sizeof(line_text), stdin);
+	sscanf(line_text, "%f", &myradius);
+
+	myvolume = (4.0 / 3.0) * PI * (myradius * myradius * myradius); 
+	printf("The volume of sphere is %f.\n", myvolume);
+
+	return(0);
+}
+
+Exercise 5-3: Write a program that prints the perimeter of a rectangle given its  height and width. perimeter = 2 · (width + height) 
+
+#include <stdio.h>
+int main() {
+float rec_width;         /* width of the rectangle */
+float rec_height;        /* height of the rectangle */
+float rec_perimeter;     /* perimeter (to be computed) */
+
+	printf("Input the height of the Rectangle : ");
+	sscanf(line_text, "%f", &rec_height);
+	printf("Input the width of the Rectangle : ");
+	sscanf(line_text, "%f", &rec_width);
+	rec_perimeter = 2.0 * (rec_height + rec_width); 
+	printf("Perimeter of the Rectangle is : %f\n", rec_perimeter);
+	return 0;
+}
+
+Exercise 5-4: Write a program that converts kilometers per hour to miles per hour.
+
+#include <stdio.h>
+float kmph;              /* kilometers per hour */
+float miph;              /* miles per hour (to be computed) */
+char  line_text[50];      
+
+int main()
 {
-  data[0] = 23.0;
-  data[1] = 33.;
-  data[4]=2.;
-  data[2]=44.;
-  data[3] = 33.0;
+	printf("Input kilometers per hour: ");
+	fgets(line_text, sizeof(line_text), stdin);
+	sscanf(line_text, "%f", &kmph);
 
-  total = data[0]+data[1]+data[2]+data[3]+data[4];
-  average = total / 5.0;
-  printf("Total is %f aver is %f\n",total,average);
+	miph = (kmph * 0.6213712);
+	printf("%f miles per hour\n", miph);
 
-  strcpy(mystring,"Juan");
-  length = strlen(mystring);
-  printf("this is a string  %s and its length %d \n",mystring,length);
-  return(0);
+	return(0);
 }
 
+Exercise 5-5: Write a program that takes hours and minutes as input, and then outputs the total number of minutes.
+
 #include <stdio.h>
-#include <string.h>
+int hrs;          /* number of hours */
+int mins;         /* number of minutes */
+int tot_mins;     
 
-char line[200];
-char first[100];
-char last[100];
+const int MINaHOUR = 60;      /* number of minutes in an hour */
 
-int main(void)
+char line_text[50];      
+
+int main() {
+	printf("Input hours: ");
+	fgets(line_text, sizeof(line_text), stdin);
+	sscanf(line_text, "%d", &hrs);
+
+	printf("Input minutes: ");
+	fgets(line_text, sizeof(line_text), stdin);
+	sscanf(line_text, "%d", &mins);
+
+	tot_mins = mins + (hrs * MINaHOUR);
+
+	printf("Total: %d minutes.\n", tot_mins);
+
+	return(0);
+}
+
+Exercise 5-6: Write a program that takes an integer as the number of minutes, and outputs the total hours and minutes.
+
+
+
+Exercise 5-7: Write a program that converts days into years, months and Weeks.
+
+#include <stdio.h>
+int main()
 {
-  printf("Enter a first name: ");
-  fgets(first,sizeof(first),stdin);
-  first[strlen(first)-1] = '\0';
+   int days, years, weeks, months;
+   printf("Enter Days:");
+   scanf("%d",&days);
 
-  printf("Enter a last: ");
-  fgets(last,sizeof(last),stdin);
-  last[strlen(last)-1] = '\0';
+   years=days/365;
+   weeks=days/7;
+   months=days/30;
 
-  strcpy(line,first);
-  strcat(line," ");
-  strcat(line,last);
-
-  printf("the name is %s\n",line);
-  printf("The length is %lu\n", strlen(line));
+   printf("Days to years %d",years);
+   printf("\nDays to weeks %d",weeks);
+   printf("\nDays to months %d",months);
 }
-
-Example 5.6 full2/full2.c #include <stdio.h> #include <string.h>
-
-char mystring[30]; char nombre[10]; char last[10]; int mylen; //lenght of the string
-
-int main(void) { printf("enter first name/ ingrese nombre: "); fgets(nombre,sizeof(nombre),stdin); mylen = strlen(nombre); printf("mylen is %d\n",mylen); nombre[mylen-1] = '\0'; printf("enter last/ ingrese apellido: "); fgets(last,sizeof(last),stdin); mylen = strlen(last); last[mylen-1] = '\0'; printf("mylen2 is %d\n",mylen); strcpy(mystring,nombre); strcat(mystring," "); strcat(mystring,last); printf("the full name is %s \n", mystring); return 0; }
-
-Matrix #include <stdio.h>
-
-int array[3]={11,12,13};
-
-int matrix[3][2];
-
-int main(void) {
-
-matrix[0][0]=11; matrix[0][1]=12; matrix[1][0]=13; matrix[1][1]=22; matrix[2][0]=23; matrix[2][1]=24;
-
-printf("matrix[row %d] ",0); printf("%d ",matrix[0][0]); printf("%d ",matrix[0][1]); printf("\n");
-
-printf("matrix[row %d] ",1); printf("%d ",matrix[1][0]); printf("%d ",matrix[1][1]); printf("\n");
-
-printf("matrix[row %d] ",2); printf("%d ",matrix[2][0]); printf("%d ",matrix[2][1]); printf("\n");
-
-return 0; }
-
-Example 5.8 double/double.c #include <stdio.h> char line[100]; /* input line from console / int value; / a value to double */
-
-int main() { printf("Enter a value: ");
-
-fgets(line, sizeof(line), stdin);
-sscanf(line, "%d", &value);
-
-printf("Twice %d is %d\n", value, value * 2);
-return (0);
-}
-
-Calculate area and perimeter of a rectangle and a circle
-
-#include <stdio.h> #include <conio.h>
-
-int main(){ float length, width, area; printf("Enter length of Rectangle\n"); scanf("%f", &length); printf("Enter width of Rectangle\n"); scanf("%f", &width); /* Area of Rectangle = Length X Width */ area = length * width; printf("Area of Rectangle : %0.4f\n", area);
-
-getch();
-return 0;
-}
-
-#include<stdio.h> int main() { float radius, area; printf("\nEnter the radius of Circle : "); scanf("%d", &radius); area = 3.14 * radius * radius; printf("\nArea of Circle : %f", area); return (0); }
-
-Average of 5 numbers
-
-#include <stdio.h>
-
-int main() { int num; // Declare 'num' to read number from users int sum, i; // Declare variables 'sum' to keep sum of numbers & 'i' used in for loop float average; // Declae variable 'average' of float type to save average value
-
-printf("Enter five numbers: "); // Display message to enter numbers
-
-for(i=0; i<5; i++){    // Loop for 5 times 
-    scanf("%d", &num); // Read number
-    sum = sum + num;   // Add into 'sum'
-}
-
-average = sum/(float)5;  // Calculate average by dividing 'sum' by 5
-
-printf("Average = %f", average); // Display average 
-
-return 0;
