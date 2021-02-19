@@ -1,0 +1,119 @@
+#include <stdio.h>
+#include <string.h>
+
+float data[5]; // data to get total and average
+float total;  /* total sum of elements */
+float average;  //average of the elements
+
+// 5 -> 0-4, if n elements, the index will go from  0 to n-1
+char mystring[30];
+int length;
+
+int main(void)
+{
+  data[0] = 23.0;
+  data[1] = 33.;
+  data[4]=2.;
+  data[2]=44.;
+  data[3] = 33.0;
+
+  total = data[0]+data[1]+data[2]+data[3]+data[4];
+  average = total / 5.0;
+  printf("Total is %f aver is %f\n",total,average);
+
+  strcpy(mystring,"Juan");
+  length = strlen(mystring);
+  printf("this is a string  %s and its length %d \n",mystring,length);
+  return(0);
+}
+
+#include <stdio.h>
+#include <string.h>
+
+char line[200];
+char first[100];
+char last[100];
+
+int main(void)
+{
+  printf("Enter a first name: ");
+  fgets(first,sizeof(first),stdin);
+  first[strlen(first)-1] = '\0';
+
+  printf("Enter a last: ");
+  fgets(last,sizeof(last),stdin);
+  last[strlen(last)-1] = '\0';
+
+  strcpy(line,first);
+  strcat(line," ");
+  strcat(line,last);
+
+  printf("the name is %s\n",line);
+  printf("The length is %lu\n", strlen(line));
+}
+
+Example 5.6 full2/full2.c #include <stdio.h> #include <string.h>
+
+char mystring[30]; char nombre[10]; char last[10]; int mylen; //lenght of the string
+
+int main(void) { printf("enter first name/ ingrese nombre: "); fgets(nombre,sizeof(nombre),stdin); mylen = strlen(nombre); printf("mylen is %d\n",mylen); nombre[mylen-1] = '\0'; printf("enter last/ ingrese apellido: "); fgets(last,sizeof(last),stdin); mylen = strlen(last); last[mylen-1] = '\0'; printf("mylen2 is %d\n",mylen); strcpy(mystring,nombre); strcat(mystring," "); strcat(mystring,last); printf("the full name is %s \n", mystring); return 0; }
+
+Matrix #include <stdio.h>
+
+int array[3]={11,12,13};
+
+int matrix[3][2];
+
+int main(void) {
+
+matrix[0][0]=11; matrix[0][1]=12; matrix[1][0]=13; matrix[1][1]=22; matrix[2][0]=23; matrix[2][1]=24;
+
+printf("matrix[row %d] ",0); printf("%d ",matrix[0][0]); printf("%d ",matrix[0][1]); printf("\n");
+
+printf("matrix[row %d] ",1); printf("%d ",matrix[1][0]); printf("%d ",matrix[1][1]); printf("\n");
+
+printf("matrix[row %d] ",2); printf("%d ",matrix[2][0]); printf("%d ",matrix[2][1]); printf("\n");
+
+return 0; }
+
+Example 5.8 double/double.c #include <stdio.h> char line[100]; /* input line from console / int value; / a value to double */
+
+int main() { printf("Enter a value: ");
+
+fgets(line, sizeof(line), stdin);
+sscanf(line, "%d", &value);
+
+printf("Twice %d is %d\n", value, value * 2);
+return (0);
+}
+
+Calculate area and perimeter of a rectangle and a circle
+
+#include <stdio.h> #include <conio.h>
+
+int main(){ float length, width, area; printf("Enter length of Rectangle\n"); scanf("%f", &length); printf("Enter width of Rectangle\n"); scanf("%f", &width); /* Area of Rectangle = Length X Width */ area = length * width; printf("Area of Rectangle : %0.4f\n", area);
+
+getch();
+return 0;
+}
+
+#include<stdio.h> int main() { float radius, area; printf("\nEnter the radius of Circle : "); scanf("%d", &radius); area = 3.14 * radius * radius; printf("\nArea of Circle : %f", area); return (0); }
+
+Average of 5 numbers
+
+#include <stdio.h>
+
+int main() { int num; // Declare 'num' to read number from users int sum, i; // Declare variables 'sum' to keep sum of numbers & 'i' used in for loop float average; // Declae variable 'average' of float type to save average value
+
+printf("Enter five numbers: "); // Display message to enter numbers
+
+for(i=0; i<5; i++){    // Loop for 5 times 
+    scanf("%d", &num); // Read number
+    sum = sum + num;   // Add into 'sum'
+}
+
+average = sum/(float)5;  // Calculate average by dividing 'sum' by 5
+
+printf("Average = %f", average); // Display average 
+
+return 0;
